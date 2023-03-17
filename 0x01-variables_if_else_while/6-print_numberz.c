@@ -1,18 +1,19 @@
 #include <stdio.h>
 
 /**
- * main - prints the lowercase alphabet in reverse,
- * followed by a new line
+ * main - Prints numbers from 0 to 9.
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-        char ch;
+	int i;
 
-        for (ch = 'z'; ch >= 'a'; ch--)
-        {
-                putchar(ch);
-        }
-        putchar('\n');
-        return (0);
+	for (i = 48; i < 58; i++)
+	{
+		putchar(i);
+	}
+	putchar('\n');
+	return (0);
 }
+
