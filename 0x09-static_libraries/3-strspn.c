@@ -1,23 +1,29 @@
+#include "main.h"
 /**
- * _strspn - find the number of occurence of charachters from a string
- * @s: string to check in
- * @accept: characters to check for
- *
- * Return: count
+ * _strspn - Entry point
+ * @s: input
+ * @accept: input
+ * Return: Always 0 (Success)
  */
-
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int j, k;
+	unsigned int n = 0;
+	int r;
 
-	for (j = 0; *(s + j) != '\0'; j++)
+
+	while (*s)
 	{
-		for (k = 0; *(s + j) != *(accept + k); k++)
+		for (r = 0; accept[r]; r++)
 		{
-			if (*(accept + k) == '\0')
-				return (j);
+			if (*s == accept[r])
+			{
+				n++;
+				break;
+			}
+			else if (accept[r + 1] == '\0')
+				return (n);
 		}
+		s++;
 	}
-
-	return (j);
+	return (n);
 }

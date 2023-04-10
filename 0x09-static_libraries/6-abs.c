@@ -1,15 +1,16 @@
 #include "main.h"
-#include <stdlib.h>
+
 
 /**
- * _abs - prints the absolute value of an input
- * @num : parameter for the function ASCII value
- *
- *
- * Return: 1 (success) 0 (failure)
+ * _abs - computes the absolute value of an integer
+ * @n: the int to check
+ * Return: the absolute value of int
  */
-
-int _abs(int num)
+int _abs(int n)
 {
-	return (abs(num));
+	if (n >= 0)
+	{
+		return (n);
+	}
+	return (-n);
 }
