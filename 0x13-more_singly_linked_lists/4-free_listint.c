@@ -1,12 +1,12 @@
 #include "lists.h"
-/**
- * free_dlistint - free every node in a list
- * @head: head of the list
- */
 
-void free_dlistint(dlistint_t *head)
+/**
+ * free_listint - frees a linked list
+ * @head: listint_t list to be freed
+ */
+void free_listint(listint_t *head)
 {
-	dlistint_t *temp;
+	listint_t *temp;
 
 	while (head)
 	{
@@ -15,3 +15,4 @@ void free_dlistint(dlistint_t *head)
 		head = temp;
 	}
 }
+

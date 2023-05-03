@@ -1,40 +1,22 @@
 #include "lists.h"
+
 /**
- * delete_dnodeint_at_index - delete node at an index
- * @head: pointer to the head of the list
- * @index: index at which to delete node
+ * sum_listint - calculates the sum of all the data in a listint_t list
+ * @head: first node in the linked list
  *
- * Return: 1 (success) -1(failure)
+ * Return: resulting sum
  */
-
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int sum_listint(listint_t *head)
 {
-	dlistint_t *tmp = *head;
+	int sum = 0;
+	listint_t *temp = head;
 
-	if (*head == NULL)
-		return (-1);
-
-	for (; index != 0; index--)
+	while (temp)
 	{
-		if (tmp == NULL)
-			return (-1);
-		tmp = tmp->next;
+		sum += temp->n;
+		temp = temp->next;
 	}
 
-	if (tmp == *head)
-	{
-		*head = tmp->next;
-		if (*head != NULL)
-			(*head)->prev = NULL;
-	}
-
-	else
-	{
-		tmp->prev->next = tmp->next;
-		if (tmp->next != NULL)
-			tmp->next->prev = tmp->prev;
-	}
-
-	free(tmp);
-	return (1);
+	return (sum);
 }
+

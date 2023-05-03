@@ -1,31 +1,22 @@
 #include "lists.h"
+
 /**
- * print_dlistint - print every item in a linked list h
- * @h: head of linked list
+ * print_listint - prints all the elements of a linked list
+ * @h: linked list of type listint_t to print
  *
- * Return: number of nodes in linked list
+ * Return: number of nodes
  */
-
-size_t print_dlistint(const dlistint_t *h)
+size_t print_listint(const listint_t *h)
 {
-	size_t num;
-	dlistint_t *current;
+	size_t num = 0;
 
-	if (h == NULL)
-		return (0);
-
-	current = malloc(sizeof(dlistint_t));
-	current->prev = h->prev;
-	current->n = h->n;
-	current->next = h->next;
-	num = 0;
-	while (current != NULL)
+	while (h)
 	{
-		printf("%d\n", current->n);
+		printf("%d\n", h->n);
 		num++;
-		current = current->next;
+		h = h->next;
 	}
 
-	free(current);
 	return (num);
 }
+

@@ -1,23 +1,23 @@
 #include "lists.h"
-/**
- * get_dnodeint_at_index - get value at an index
- * @head: head of the list
- * @index: index of node to get
- *
- * Return: the node at that index
- */
 
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
+/**
+ * free_listint2 - frees a linked list
+ * @head: pointer to the listint_t list to be freed
+ */
+void free_listint2(listint_t **head)
 {
+	listint_t *temp;
+
 	if (head == NULL)
-		return (NULL);
-	while (index)
+		return;
+
+	while (*head)
 	{
-		if (head->next != NULL)
-			head = head->next;
-		else
-			return (NULL);
-		index--;
+		temp = (*head)->next;
+		free(*head);
+		*head = temp;
 	}
-	return (head);
+
+	*head = NULL;
 }
+

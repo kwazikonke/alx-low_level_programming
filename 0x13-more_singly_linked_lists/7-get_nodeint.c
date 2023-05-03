@@ -1,42 +1,23 @@
 #include "lists.h"
+
 /**
- * insert_dnodeint_at_index - insert a node at a particular index
- * @h: address of the head of list
- * @idx: index to add node at
- * @n: value of node
+ * get_nodeint_at_index - returns the node at a certain index in a linked list
+ * @head: first node in the linked list
+ * @index: index of the node to return
  *
- * Return: new node
+ * Return: pointer to the node we're looking for, or NULL
  */
-
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	dlistint_t *current, *temp, *next;
+	unsigned int i = 0;
+	listint_t *temp = head;
 
-	if (idx == 0)
-		return (add_dnodeint(h, n));
-
-	temp = malloc(sizeof(dlistint_t));
-	if (temp == NULL)
-		return (NULL);
-	temp->n = n;
-	current = *h;
-
-	while (idx > 1)
+	while (temp && i < index)
 	{
-		if (current != NULL)
-			current = current->next;
-		else
-			return (NULL);
-		idx--;
+		temp = temp->next;
+		i++;
 	}
 
-	if (current->next == NULL)
-		return (add_dnodeint_end(h, n));
-
-	next = current->next;
-	current->next = temp;
-	next->prev = temp;
-	temp->prev = current;
-	temp->next = next;
-	return (temp);
+	return (temp ? temp : NULL);
 }
+
