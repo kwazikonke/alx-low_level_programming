@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* read_textfile - Write a function that reads a text file and prints it to the POSIX standard output.
+* read_textfile - check the code for Holberton School students.
 * @filename: file to read and write
 * @letters: number of letters to read and write.
 * Return: letters printed
